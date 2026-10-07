@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #f3f0ea;
+  --color-surface: #fffdf8;
+  --color-fg: #1c1917;
+  --color-muted: #6f6a62;
+  --color-faint: #9a948a;
+  --color-primary: #2f5d50;
+  --color-primary-fg: #f3f0ea;
+  --color-border: #e4ddd0;
+  --color-blotter: #1b2420;
+  --color-blotter-fg: #e8efe9;
+  --color-blotter-muted: #9aaba3;
+  --color-rule: #d9d1c3;
+  --color-success: #2f6b45;
+  --color-warn: #8a5a22;
+  --color-danger: #8f3b32;
+  --color-chip: #ece6d9;
+
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Newsreader", ui-serif, Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+
+  --shadow-card:
+    0px 0px 0px 1px rgba(28, 25, 23, 0.06),
+    0px 1px 2px -1px rgba(28, 25, 23, 0.06),
+    0px 12px 28px -16px rgba(28, 25, 23, 0.12);
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body,
+  #app {
+    min-height: 100dvh;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-primary) 22%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
